@@ -1163,26 +1163,34 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void removeFromOrder() {
+        int rowToRemove = orderTable.getSelectedRow();
+        double removePrice = currentOrder[rowToRemove].getPrice() * -1;
         try {
-            int rowToRemove = orderTable.getSelectedRow();
-            double removePrice = currentOrder[rowToRemove].getPrice() * -1;
-            System.out.println(rowToRemove);
-            System.out.println(removePrice);
-                for (int i = rowToRemove; i < 5; i++) {
-                    if (currentOrder[i + 1] == null || rowToRemove == 4) {
+                for (int i = rowToRemove; i <= 4; i++) {
+                    if (rowToRemove == 4 || currentOrder[i + 1] == null) {
                         currentOrder[i] = null;
                         break;
                     }
                     else {
                         currentOrder[i] = currentOrder[i + 1];
+                        currentOrder[i + 1] = null;
                         currentOrder[i].decPos();
                     }
                    }  
             setOrderDisp(removePrice);
             numItems -= 1;
+            if (numItems < 4) {
+                btnAdd.setEnabled(true);
+            }
             updateTable();
         }
-        catch (ArrayIndexOutOfBoundsException e) {}
+        catch (ArrayIndexOutOfBoundsException e) {
+            setOrderDisp(removePrice);
+            numItems -= 1;
+            if (numItems < 4) {
+                btnAdd.setEnabled(true);
+            }
+            updateTable();}
     }
     
     private void setOrderDisp(double aToAdd) {
@@ -1232,18 +1240,18 @@ public class MainWindow extends javax.swing.JFrame {
     private void outputToCSV() {
         String currentDateTime = new SimpleDateFormat("yyyy-MM-dd HH").format(new Date());
         String currentTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
-        String filename = currentDateTime + ".csv";
+        String filename = "Order Logs/" + currentDateTime + ".csv";
         String orderString = currentTime;
         try {
             for (int i = 0; i < 5; i++) {
                 orderString = orderString + "\n," + orderTable.getValueAt(i, 1).toString() + "," + orderTable.getValueAt(i, 2).toString() + "," + orderTable.getValueAt(i, 3);
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
-        orderString = orderString + "," + payDisp.getText() + "," + tenderDisp.getText() + "," + changeDisp.getText();
+        orderString = orderString + "," + orderDisp.getText() + "," + tenderDisp.getText() + "," + changeDisp.getText();
         try {
             final Path path = Paths.get(filename);
             Files.write(path, Arrays.asList(orderString), StandardCharsets.UTF_8, Files.exists(path) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
-        } catch (IOException ioe) {}
+        } catch (IOException ioe) {System.out.println("IOEXCEPTION - REPEAT THE ORDER. You didn't forget to close the csv file, did you?");}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
