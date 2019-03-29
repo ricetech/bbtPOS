@@ -30,6 +30,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         btnO.setActionCommand(btnO.getText());
+        btnP.setActionCommand(btnP.getText());
         btnS.setActionCommand(btnS.getText());
         btnT.setActionCommand(btnT.getText());
         btnL.setActionCommand(btnL.getText());
@@ -83,7 +84,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnD0 = new javax.swing.JButton();
         btnO = new javax.swing.JToggleButton();
-        btnS = new javax.swing.JToggleButton();
+        btnP = new javax.swing.JToggleButton();
         btnT = new javax.swing.JToggleButton();
         btnL = new javax.swing.JToggleButton();
         btnN = new javax.swing.JToggleButton();
@@ -95,12 +96,11 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
         btnRemove = new javax.swing.JButton();
+        btnS = new javax.swing.JToggleButton();
 
         confirmDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         confirmDialog.setAlwaysOnTop(true);
-        confirmDialog.setMaximumSize(new java.awt.Dimension(420, 473));
         confirmDialog.setMinimumSize(new java.awt.Dimension(420, 473));
-        confirmDialog.setPreferredSize(new java.awt.Dimension(420, 473));
         confirmDialog.setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -494,17 +494,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        menuSelect.add(btnS);
-        btnS.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        btnS.setText("Slush");
-        btnS.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuSelect.add(btnP);
+        btnP.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        btnP.setText("PF");
+        btnP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSMouseClicked(evt);
+                btnPMouseClicked(evt);
             }
         });
-        btnS.addActionListener(new java.awt.event.ActionListener() {
+        btnP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSActionPerformed(evt);
+                btnPActionPerformed(evt);
             }
         });
 
@@ -659,12 +659,28 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        menuSelect.add(btnS);
+        btnS.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        btnS.setText("Slush");
+        btnS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSMouseClicked(evt);
+            }
+        });
+        btnS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(260, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(189, 189, 189)
@@ -679,7 +695,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -746,7 +762,6 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -785,7 +800,9 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -800,7 +817,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(btn2L, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
@@ -943,9 +960,9 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_orderDispActionPerformed
 
-    private void btnSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSMouseClicked
+    private void btnPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSMouseClicked
+    }//GEN-LAST:event_btnPMouseClicked
 
     private void btnTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTMouseClicked
         // TODO add your handling code here:
@@ -975,9 +992,9 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOActionPerformed
 
-    private void btnSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSActionPerformed
+    private void btnPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSActionPerformed
+    }//GEN-LAST:event_btnPActionPerformed
 
     private void btnTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTActionPerformed
         // TODO add your handling code here:
@@ -1033,6 +1050,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void btnOrderCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderCanActionPerformed
         confirmDialog.setVisible(false);
     }//GEN-LAST:event_btnOrderCanActionPerformed
+
+    private void btnSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSMouseClicked
+
+    private void btnSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1126,11 +1151,15 @@ public class MainWindow extends javax.swing.JFrame {
         
         switch (menuItem) {
             case "Original":
-                menuPrice = 2.50;
+                menuPrice = 3;
                 menuItem = "O";
                 break;
+            case "PF":
+                menuPrice = 3;
+                menuItem = "P";
+                break;
             case "Slush":
-                menuPrice = 3.50;
+                menuPrice = 4;
                 menuItem = "S";
                 break;
             default:
@@ -1278,6 +1307,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnO;
     private javax.swing.JButton btnOrderCan;
     private javax.swing.JButton btnOrderConf;
+    private javax.swing.JToggleButton btnP;
     private javax.swing.JButton btnRemove;
     private javax.swing.JToggleButton btnS;
     private javax.swing.JToggleButton btnT;

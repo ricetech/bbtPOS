@@ -30,6 +30,8 @@ public class OrderItem {
             break;
             case "S": dispDrink = "Slush";
             break;
+            case "P": dispDrink = "PF";
+            break;
             default: dispDrink = "N/A";
             break;
         }
