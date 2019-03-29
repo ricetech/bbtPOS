@@ -1168,7 +1168,10 @@ public class MainWindow extends javax.swing.JFrame {
         }
         
         switch (toppingItem) {
-            case "T": case "L":
+            case "T": 
+                toppingPrice = 0;
+                break;
+            case "L":
                 toppingPrice = 0.5;
                 break;
             case "T+L": case "2T": case "2L":
