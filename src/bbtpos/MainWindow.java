@@ -1182,6 +1182,9 @@ public class MainWindow extends javax.swing.JFrame {
         if (numItems == 4) {
             btnAdd.setEnabled(false);
         }
+        else if (numItems < 4) {
+            btnAdd.setEnabled(true);
+        }
         currentOrder[numItems] = new OrderItem((numItems + 1), menuItem, toppingItem, itemPrice);
         numItems += 1;
         
@@ -1208,15 +1211,15 @@ public class MainWindow extends javax.swing.JFrame {
                    }  
             setOrderDisp(removePrice);
             numItems -= 1;
-            if (numItems < 4) {
+            updateTable();
+            if (numItems <= 4) {
                 btnAdd.setEnabled(true);
             }
-            updateTable();
         }
         catch (ArrayIndexOutOfBoundsException e) {
             setOrderDisp(removePrice);
             numItems -= 1;
-            if (numItems < 4) {
+            if (numItems <= 4) {
                 btnAdd.setEnabled(true);
             }
             updateTable();}
