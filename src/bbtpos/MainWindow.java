@@ -1159,7 +1159,7 @@ public class MainWindow extends javax.swing.JFrame {
                 menuItem = "P";
                 break;
             case "Slush":
-                menuPrice = 4;
+                menuPrice = 3.5;
                 menuItem = "S";
                 break;
             default:
@@ -1283,6 +1283,7 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             final Path path = Paths.get(filename);
             Files.write(path, Arrays.asList(orderString), StandardCharsets.UTF_8, Files.exists(path) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
+            System.out.println("File saved successfully.");
         } catch (IOException ioe) {System.out.println("IOEXCEPTION - REPEAT THE ORDER. You didn't forget to close the csv file, did you?");}
     }
 
