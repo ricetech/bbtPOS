@@ -1174,7 +1174,13 @@ public class MainWindow extends javax.swing.JFrame {
             case "L":
                 toppingPrice = 0.5;
                 break;
-            case "T+L": case "2T": case "2L":
+            case "T+L": 
+                toppingPrice = 0.5;
+                break;
+            case "2T": 
+                toppingPrice = 0;
+                break;
+            case "2L":
                 toppingPrice = 1;
                 break;
             default:
